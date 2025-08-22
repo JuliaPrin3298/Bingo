@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bingo Sorter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    button {
+        padding: 15px 25px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #ultimoNumero {
+        font-size: 48px;
+        margin: 20px 0;
+        color: #ff5722;
+    }
+    #numerosSorteados {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+    <h1>BINGOOOOOOOO</h1>
+    <button onclick="sortearNumero()">Sortear Número</button>
+    <div id="ultimoNumero">-</div>
+    <div id="numerosSorteados">Números sorteados: Nenhum</div>
+
+<script>
+    let numerosSorteados = [];
+
+    function sortearNumero() {
+        if (numerosSorteados.length >= 75) {
+            alert("Todos os números já foram sorteados!");
+            return;
+        }
+
+        let numero;
+        do {
+            numero = Math.floor(Math.random() * 75) + 1;
+        } while (numerosSorteados.includes(numero));
+
+        numerosSorteados.push(numero);
+
+        document.getElementById('ultimoNumero').innerText = numero;
+        document.getElementById('numerosSorteados').innerText = "Números sorteados: " + numerosSorteados.join(", ");
+    }
+</script>
+</body>
+</html>
